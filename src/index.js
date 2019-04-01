@@ -8,4 +8,12 @@ import Badge from './components/Badge';
 
 const container = document.getElementById("app");
 
-ReactDOM.render(<Badge />, container);
+ReactDOM.render(
+  <Badge
+    firstName="Hector"
+    lastName="Flores"
+    jobTitle="Software Engineer"
+    twitter="hecto932"
+  />, 
+  container
+);
