@@ -30,7 +30,7 @@ class BadgesList extends Component {
     return (
       <div className="BadgesList">
         <ul className="list-unstyled">
-          {this.props.data.map(badge => {
+          {this.props.badges.map(badge => {
             console.log(badge);
             return (
               <li key={badge.id}>
