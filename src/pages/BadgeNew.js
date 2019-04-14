@@ -5,18 +5,20 @@ import './styles/BadgeNew.css';
 import header from '../images/platziconf-logo.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
+import PageLoading from '../components/PageLoading';
 
 import api from '../api';
 
 class BadgeNew extends Component {
   state = {
+    loading: false,
+    error: null,
     form: {
       firstName: '',
       lastName: '',
       email: '',
       jobTitle: '',
-      twitter: '',
-      avatarUrl: '',
+      twitter: ''
     } 
   };
 
@@ -26,6 +28,7 @@ class BadgeNew extends Component {
     try {
       await api.badges.create(this.state.form);
       this.setState({ loading: false });
+      this.props.history.push('/badges');
     } catch (err) {
       this.setState({ loading: false, error: err })
     }
@@ -37,17 +40,17 @@ class BadgeNew extends Component {
     // this.setState({
     //   form: nextForm
     // })
-    const email = this.state.form.email
-    const hash = md5(email);
     this.setState({
       form: {
         ...this.state.form,
-        avatarUrl: `https://s.gravatar.com/avatar/${hash}?d=identicon`,
         [e.target.name]: e.target.value
       }
     });
   };
   render() {
+    if (this.state.loading) {
+      return <PageLoading />
+    }
     
     return (
       <Fragment>
@@ -72,6 +75,7 @@ class BadgeNew extends Component {
                 onChange={this.handleChange}
                 formValues={this.state.form}
                 onSubmit={this.handleSubmit}
+                error={this.state.error}
               />
             </div>
           </div>
