@@ -1,15 +1,6 @@
 {
   "badges": [
     {
-      "id": "d00d3614-101a-44ca-b6c2-0be075aeed3d",
-      "firstName": "Major",
-      "lastName": "Rodriguez",
-      "email": "Ilene66@hotmail.com",
-      "jobTitle": "Human Research Architect",
-      "twitter": "MajorRodriguez61545",
-      "avatarUrl": "https://www.gravatar.com/avatar/d57a8be8cb9219609905da25d5f3e50a?d=identicon"
-    },
-    {
       "id": "63c03386-33a2-4512-9ac1-354ad7bec5e9",
       "firstName": "Daphney",
       "lastName": "Torphy",
@@ -480,6 +471,22 @@
       "jobTitle": "Frontend Developer",
       "twitter": "hecto932",
       "id": "lHGAlDp"
+    },
+    {
+      "firstName": "Jessica 3",
+      "lastName": "Yañez",
+      "email": "desh365@hotmail.com",
+      "jobTitle": "Frontend Developer",
+      "twitter": "yessic",
+      "id": "T_oBLMr"
+    },
+    {
+      "firstName": "Rodrigo 2",
+      "lastName": "Patiño",
+      "email": "dulo.rodrigo@gmail.com",
+      "jobTitle": "Frontend Developer",
+      "twitter": "rodrigo",
+      "id": "ozSEt8E"
     }
   ]
 }
