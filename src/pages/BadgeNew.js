@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import md5 from 'md5';
 
 import './styles/BadgeNew.css';
 import header from '../images/platziconf-logo.svg';
