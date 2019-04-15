@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import "./styles/BadgeDetails.css";
-import confLogo from "../images/platziconf-logo.svg";
 import PageLoading from "../components/PageLoading";
 import PageError from "../components/PageError";
 import Badge from "../components/Badge";
@@ -13,7 +11,8 @@ class BadgeDetailsContainer extends Component {
   state = {
     loading: true,
     error: null,
-    data: undefined
+    data: undefined,
+    modalIsOpen: false
   };
 
   componentDidMount() {
@@ -31,6 +30,26 @@ class BadgeDetailsContainer extends Component {
     }
   };
 
+  handleOpenModal = e => {
+    this.setState({ modalIsOpen: true });
+  };
+
+  handleCloseModal = e => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  handleDeleteBadge = async (e) => {
+    this.setState({ loading: true, error: null })
+
+    try {
+      await api.badges.remove(this.props.match.params.badgeId)
+      this.setState({ loading: false })
+      this.props.history.push('/badges');
+    } catch (err) {
+      this.setState({ loading: false, error: err });
+    }
+  } 
+
   render() {
     if (this.state.loading) {
       return <PageLoading />;
@@ -41,7 +60,13 @@ class BadgeDetailsContainer extends Component {
     }
 
     return (
-      <BadgeDetails badge={this.state.data} />
+      <BadgeDetails
+        onOpenModal={this.handleOpenModal}
+        onCloseModal={this.handleCloseModal}
+        modalIsOpen={this.state.modalIsOpen}
+        onDeleteBadge={this.handleDeleteBadge}
+        badge={this.state.data}
+      />
     );
   }
 }
