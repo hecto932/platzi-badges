@@ -44,7 +44,7 @@ class BadgeEdit extends Component {
     try {
       await api.badges.update(this.props.match.params.badgeId, this.state.form);
       this.setState({ loading: false });
-      this.props.history.push("/badges");
+      this.props.history.push("/badges"); 
     } catch (err) {
       this.setState({ loading: false, error: err });
     }
